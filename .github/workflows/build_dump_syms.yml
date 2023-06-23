@@ -30,13 +30,22 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dump_syms-linux
-          path: src/tools/linux/dump_syms/dump_syms
+          path: |
+            src/tools/linux/dump_syms/dump_syms
+            src/tools/linux/dump_syms/dump_syms_mac
 
   build-windows:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+          
+      - name: Set up MSBuild and NMake
+        uses: actions/setup-msbuild@v1
+        with:
+          vs-version: 'latest' # Installe la dernière version de Visual Studio
+          include-msbuild: true
+          include-nmake: true
           
       - name: Build dump_syms for Windows
         run: |
