@@ -17,17 +17,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential zlib1g-dev
 
-      - name: Clone Breakpad repository
-        run: git clone https://github.com/Nemirtingas/breakpad.git
-
       - name: Clone linux-syscall-support repository
         run: |
-          cd breakpad/src/third_party
-          git clone https://chromium.googlesource.com/linux-syscall-support lss
+          git clone https://chromium.googlesource.com/linux-syscall-support src/third_party/lss
 
       - name: Build dump_syms for Linux
         run: |
-          cd breakpad
+          ./configure
           make
 
       - name: Upload Linux binary
@@ -46,18 +42,14 @@ jobs:
         run: |
           choco install -y visualstudio2019buildtools --package-parameters "--includeRecommended --includeOptional"
           choco install -y nasm
-
-      - name: Clone Breakpad repository
-        run: git clone https://github.com/Nemirtingas/breakpad.git
-
+          
       - name: Build dump_syms for Windows
         run: |
-          cd breakpad
-          .\configure.cmd
-          nmake
+          cd breakpad/src/tools/windows
+          nmake -f dump_syms.vcproj
 
       - name: Upload Windows binary
         uses: actions/upload-artifact@v2
         with:
           name: dump_syms-windows
-          path: breakpad/src/tools/windows/dump_syms.exe
+          path: breakpad/src/tools/windows/Release/dump_syms.exe
