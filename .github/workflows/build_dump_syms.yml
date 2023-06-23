@@ -40,12 +40,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
           
-      - name: Set up MSBuild and NMake
-        uses: microsoft/setup-msbuild@v1.1
-        with:
-          vs-version: 'latest' # Installe la dernière version de Visual Studio
-          include-msbuild: true
-          include-nmake: true
+      - name: Install NMake
+        run: |
+          $url = 'https://github.com/microsoft/vswhere/releases/latest/download'
+          $path = Join-Path $env:TEMP 'vswhere.exe'
+          Invoke-WebRequest -Uri $url -OutFile $path
+          & $path -latest -requires Microsoft.Component.MSBuild -property installationPath | Set-Variable -Name vsPath
+          $env:PATH += ";${vsPath}\MSBuild\Current\Bin"
           
       - name: Build dump_syms for Windows
         run: |
