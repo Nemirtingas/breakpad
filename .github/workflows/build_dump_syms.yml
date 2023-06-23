@@ -40,12 +40,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - uses: ilammy/msvc-dev-cmd@v1
-          
+      - name: Install MSBuild
+        uses: microsoft/setup-msbuild@v1
+
       - name: Build dump_syms for Windows
         run: |
           cd src/tools/windows/dump_syms
-          nmake -f dump_syms.vcxproj
+          msbuild dump_syms.sln /p:Configuration=Release
 
       - name: Upload Windows binary
         uses: actions/upload-artifact@v2
