@@ -32,7 +32,7 @@ jobs:
           name: dump_syms-linux
           path: |
             src/tools/linux/dump_syms/dump_syms
-            src/tools/linux/dump_syms/dump_syms_mac
+            src/tools/mac/dump_syms/dump_syms_mac
 
   build-windows:
     runs-on: windows-latest
