@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dump_syms-windows
-          path: src/tools/windows/Release/dump_syms.exe
+          path: src/tools/windows/dump_syms/Release/dump_syms.exe
