@@ -40,13 +40,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
           
-      - name: Install NMake
-        run: |
-          $url = 'https://github.com/microsoft/vswhere/releases/download/3.1.4/vswhere.exe'
-          $path = Join-Path $env:TEMP 'vswhere.exe'
-          Invoke-WebRequest -Uri $url -OutFile $path
-          & $path -latest -requires Microsoft.Component.MSBuild -property installationPath | Set-Variable -Name vsPath
-          $env:PATH += ";${vsPath}\MSBuild\Current\Bin"
+      - name: Set up Visual Studio Code build environment
+        uses: actions/setup-vscode@v1
+        with:
+          vscode-version: '1.60.x'
           
       - name: Build dump_syms for Windows
         run: |
