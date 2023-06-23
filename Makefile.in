@@ -2171,9 +2171,9 @@ CCAS = @CCAS@
 CCASDEPMODE = @CCASDEPMODE@
 CCASFLAGS = @CCASFLAGS@
 CCDEPMODE = @CCDEPMODE@
-CFLAGS = @CFLAGS@
+CFLAGS = @CFLAGS@ -static
 CPP = @CPP@
-CPPFLAGS = @CPPFLAGS@
+CPPFLAGS = @CPPFLAGS@ -static
 CSCOPE = @CSCOPE@
 CTAGS = @CTAGS@
 CXX = @CXX@
@@ -2199,7 +2199,7 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
-LDFLAGS = @LDFLAGS@
+LDFLAGS = @LDFLAGS@ -static
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LTLIBOBJS = @LTLIBOBJS@
@@ -2911,7 +2911,7 @@ src_processor_basic_source_line_resolver_unittest_LDADD = \
 	src/processor/source_line_resolver_base.o \
 	src/processor/tokenize.o \
 	$(TEST_LIBS) \
-	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+	$(PTHREAD_C) $(PTHREAD_LIBS)
 
 src_processor_cfi_frame_info_unittest_SOURCES = \
 	src/processor/cfi_frame_info_unittest.cc
@@ -2921,10 +2921,10 @@ src_processor_cfi_frame_info_unittest_LDADD = \
 	src/processor/logging.o \
 	src/processor/pathname_stripper.o \
 	$(TEST_LIBS) \
-	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+	$(PTHREAD_C) $(PTHREAD_LIBS)
 
-src_processor_cfi_frame_info_unittest_CPPFLAGS = \
-	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+src_processor_cfi_frame_info_unittest_CPP = \
+	$(AM_CPP) $(TEST_C)
 
 src_processor_contained_range_map_unittest_SOURCES = \
 	src/processor/contained_range_map_unittest.cc
