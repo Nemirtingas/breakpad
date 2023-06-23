@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dump_syms", "dump_syms.vcxp
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Debug|x64.ActiveCfg = Debug|x64
+		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Debug|x64.Build.0 = Debug|x64
 		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Debug|x86.ActiveCfg = Debug|Win32
 		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Debug|x86.Build.0 = Debug|Win32
+		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Release|x64.ActiveCfg = Release|x64
+		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Release|x64.Build.0 = Release|x64
 		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Release|x86.ActiveCfg = Release|Win32
 		{792E1530-E2C5-4289-992E-317BA30E9D9F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
@@ -20,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F6B6A7D9-C001-4A8D-BB42-E48D93B5E2CE}
+		SolutionGuid = {EEB2259B-CCEB-4B6E-B4BD-EBD5698AC836}
 	EndGlobalSection
 EndGlobal
