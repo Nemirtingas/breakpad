@@ -44,7 +44,7 @@ jobs:
           
       - name: Build dump_syms for Windows
         run: |
-          cd src/tools/windows
+          cd src/tools/windows/dump_syms
           nmake -f dump_syms.vcproj
 
       - name: Upload Windows binary
